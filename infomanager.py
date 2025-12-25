@@ -2,8 +2,6 @@ import json
 data={}
 def save_to_file():
     with open("students_data.json","w") as f:
-        # for roll,name in data.items():
-        #     f.write(f"{roll}:{name}\n")
         json.dump(data,f)   
 def Data_Entry():
     num_of_students=int(input("Enter num of students="))
@@ -26,9 +24,7 @@ def Data_Access():
             ask_roll_num=int(input("Enter roll number of the student to access it's data:"))
             with open("students_data.json","r") as f:
                 data2=json.load(f)
-                # for line in f:
-                #     roll,name=line.strip.split(":")
-                #     data2[int(roll)]=name
+
             for x in data2:
                 if int(x)==ask_roll_num:
                     print(x,data2[x])                    
@@ -60,4 +56,5 @@ def menu():
         else:
             print("Enter only one option that is to be chosen!")
         
+
 user=menu()
